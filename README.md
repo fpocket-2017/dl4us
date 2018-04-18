@@ -22,7 +22,7 @@ Corpus URL: https://drive.google.com/open?id=14mfeBRioi9dkAk546Aez6uaJcZeLoNQd
 本プロジェクトでは、単語の分散表現として学習済みのものを使用し、分散表現の学習は行いません。本プロジェクトでは、Facebookが提供しているfastTextによる学習済みの[英単語の分散表現](https://fasttext.cc/docs/en/english-vectors.html)および[日本語の単語の分散表現](https://fasttext.cc/docs/en/crawl-vectors.html)を使用しています。分散表現の次元は、いずれも300です。
 
 # 5. モデル
-本プロジェクトでは、ベースとなるモデルとしてRNN Encoder-Decoderを使用し、Encoderの出力系列の各要素にアテンドするAttentionを組み込んでいます。Encoder側のLSTMはBidirectionalとし、AttentionにはSoft Attentionを使用しています。kerasによる実装の一部を以下に記載します。コードの詳細は、case_3.ipynb内のRNNEncoderDecoderAttのクラス定義をご参照下さい。
+本プロジェクトでは、ベースとなるモデルとしてRNN Encoder-Decoderを使用し、Encoderの出力系列の各要素にアテンドするAttentionを組み込んでいます。Encoder側のLSTMはBidirectionalとし、AttentionにはSoft Attentionを使用しています。Kerasによる実装の一部を以下に記載します。コードの詳細は、case_3.ipynb内のRNNEncoderDecoderAttのクラス定義をご参照下さい。
 
 
 ```python
