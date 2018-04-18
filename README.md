@@ -9,20 +9,20 @@
 - gan.ipynb    : GANを用いたコード(実装途中)
 
 # 3. プロジェクトの概要
-本プロジェクトは、特許出願の願書に添付される特許請求の範囲の記載について英語から日本語に翻訳するタスクを深層学習によって行うプロジェクトである。
+本プロジェクトは、特許出願の願書に添付される特許請求の範囲の記載について英語から日本語に翻訳するタスクを深層学習によって行うプロジェクトです。
 
 # 4. データ
 ## 4.1 コーパス
-特許の機械翻訳用のコーパスとしては、国立情報学研究所が提供している[NTCIR-10](http://research.nii.ac.jp/ntcir/permission/ntcir-10/perm-en-PatentMT.html)が知られている。しかしながら、大学に所属する研究者等でなければ提供を受けられないなど、一般には使用できない。そのため、本プロジェクトでは、国際特許出願の願書に添付された特許請求の範囲の和文と、その国際特許出願の欧州移行時における特許請求の範囲の英文とから、英文と和文の約37万組からなるコーパスを新たに生成した。本プロジェクトでは、使用できるメモリ量や計算速度の観点から、英文と和文がともに所定の長さ以下のデータのみを使用して学習を行なった。なお、生成したコーパスは、以下からダウンロード可能である。
+特許の機械翻訳用のコーパスとしては、国立情報学研究所が提供している[NTCIR-10](http://research.nii.ac.jp/ntcir/permission/ntcir-10/perm-en-PatentMT.html)が知られています。しかしながら、大学に所属する研究者等でなければ提供を受けられないなど、一般には使用できません。そのため、本プロジェクトでは、国際特許出願の願書に添付された特許請求の範囲の和文と、その国際特許出願の欧州移行時における特許請求の範囲の英文とから、英文と和文の約37万組からなるコーパスを新たに生成致しました。本プロジェクトでは、使用できるメモリ量や計算速度の観点から、英文と和文がともに所定の長さ以下のデータのみを使用して学習を行ないました。なお、生成したコーパスは、以下からダウンロード可能です。
 
 Corpus URL: https://drive.google.com/open?id=14mfeBRioi9dkAk546Aez6uaJcZeLoNQd
 
 
 ## 4.2 単語の分散表現
-本プロジェクトでは、単語の分散表現として学習済みのものを使用し、分散表現の学習は行わない。本プロジェクトでは、Facebookが提供しているfastTextによる学習済みの[英単語の分散表現](https://fasttext.cc/docs/en/english-vectors.html)および[日本語の単語の分散表現](https://fasttext.cc/docs/en/crawl-vectors.html)を使用する。分散表現の次元は、いずれも300である。
+本プロジェクトでは、単語の分散表現として学習済みのものを使用し、分散表現の学習は行いません。本プロジェクトでは、Facebookが提供しているfastTextによる学習済みの[英単語の分散表現](https://fasttext.cc/docs/en/english-vectors.html)および[日本語の単語の分散表現](https://fasttext.cc/docs/en/crawl-vectors.html)を使用しています。分散表現の次元は、いずれも300です。
 
 # 5. モデル
-本プロジェクトでは、ベースとなるモデルとしてRNN Encoder-Decoderを使用し、Encoderの出力系列の各要素にアテンドするAttentionを組み込んでいる。Encoder側のLSTMはBidirectionalとし、AttentionにはSoft Attentionを使用している。kerasによる実装の一部を以下に記載する。コードの詳細は、case_3.ipynb内のRNNEncoderDecoderAttのクラス定義を参照されたい。
+本プロジェクトでは、ベースとなるモデルとしてRNN Encoder-Decoderを使用し、Encoderの出力系列の各要素にアテンドするAttentionを組み込んでいます。Encoder側のLSTMはBidirectionalとし、AttentionにはSoft Attentionを使用しています。kerasによる実装の一部を以下に記載します。コードの詳細は、case_3.ipynb内のRNNEncoderDecoderAttのクラス定義をご参照下さい。
 
 
 ```python
@@ -102,7 +102,7 @@ def inference(self):
 ```
 
 # 6. 数値実験
-モデルとデータ量との組み合わせに応じて、下表に記載した3つのケースについて数値実験を行なった。
+モデルとデータ量との組み合わせに応じて、下表に記載した3つのケースについて数値実験を行ないました。
 
 |     |Model|Encoder sequence length|Decoder sequence length|Data volume|
 |:---:|:-----------------------------------------:|:-:|:-:|:---:|
@@ -110,7 +110,7 @@ def inference(self):
 |Case2|2 Bidirectional LSTM layers+ soft attention|45 |106|Small|
 |Case3|2 Bidirectional LSTM layers+soft attention |41 |47 |Large|
 
-Small dataとLarge dataのデータ数の内訳は下表の通りである。
+Small dataとLarge dataのデータ数の内訳は下表の通りです。
 
 |     |Training|Validation|Test|
 |:---:|:---:|:--:|:-:|
@@ -118,7 +118,7 @@ Small dataとLarge dataのデータ数の内訳は下表の通りである。
 |Large|28146|3128|316|
 
 ## 6.1 学習
-上記3つのケースのそれぞれについて、損失関数の値および予測精度の推移を以下に示す。
+上記3つのケースのそれぞれについて、損失関数の値および予測精度の推移を以下に示します。
 
 - Case 1
 ![comment](https://github.com/fpocket-2017/machine-translation/wiki/images/history_040.png)
@@ -129,7 +129,7 @@ Small dataとLarge dataのデータ数の内訳は下表の通りである。
 - Case 3
 ![comment](https://github.com/fpocket-2017/machine-translation/wiki/images/history_070.png)
 
-学習に要した時間は下表の通りである。
+学習に要した時間は下表の通りです。
 
 |     |Epochs|Total Time|
 |:---:|:---:|:--:|
@@ -139,7 +139,7 @@ Small dataとLarge dataのデータ数の内訳は下表の通りである。
 
 
 ## 6.2 テスト
-テストは、平均BLEUスコアに基づいて行なった。テストデータに対する平均BLEUスコアの推移を以下に示す。なお、本ドキュメント末に、学習後のモデルによって生成された翻訳文のうち、BLEUスコア Top 5の文を記載している。
+テストは、平均BLEUスコアに基づいて行ないました。テストデータに対する平均BLEUスコアの推移を以下に示します。なお、本ドキュメント末に、学習後のモデルによって生成された翻訳文のうち、BLEUスコア Top 5の文を記載しています。
 
 ![comment](https://github.com/fpocket-2017/machine-translation/wiki/images/bleu.png)
 
