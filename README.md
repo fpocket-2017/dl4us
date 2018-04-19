@@ -122,13 +122,13 @@ Small dataとLarge dataのデータ数の内訳は下表の通りです。
 上記3つのケースのそれぞれについて、損失関数の値および予測精度の推移を以下に示します。
 
 - Case 1
-![comment](https://github.com/fpocket-2017/machine-translation/wiki/images/history_040.png)
+![comment](https://github.com/fpocket-2017/dl4us/wiki/images/history_040.png)
 
 - Case 2
-![comment](https://github.com/fpocket-2017/machine-translation/wiki/images/history_043.png)
+![comment](https://github.com/fpocket-2017/dl4us/wiki/images/history_043.png)
 
 - Case 3
-![comment](https://github.com/fpocket-2017/machine-translation/wiki/images/history_070.png)
+![comment](https://github.com/fpocket-2017/dl4us/wiki/images/history_070.png)
 
 学習に要した時間は下表の通りです。
 
@@ -142,7 +142,7 @@ Small dataとLarge dataのデータ数の内訳は下表の通りです。
 ## 6.2 テスト
 テストは、平均BLEUスコアに基づいて行ないました。テストデータに対する平均BLEUスコアの推移を以下に示します。なお、本ドキュメント末に、学習後のモデルによって生成された翻訳文のうち、BLEUスコア Top 5の文を記載しています。
 
-![comment](https://github.com/fpocket-2017/machine-translation/wiki/images/bleu.png)
+![comment](https://github.com/fpocket-2017/dl4us/wiki/images/bleu.png)
 
 # 結言
 知財実務において深層学習を有効に利用するためには、知財実務に関する知識や経験を有した人が深層学習のモデルの構築や学習データの選別に携わるべきだと考えています。知財実務における処理の多くは自然言語処理であるところ、本プロジェクトでは、自然言語処理の代表的なタスクである機械翻訳に取り組みました。本プロジェクトの資産が、知財実務における深層学習の利用に対して何らかのお役に立てば幸いです。
