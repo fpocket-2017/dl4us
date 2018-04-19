@@ -2,7 +2,7 @@
 このリポジトリは、DL4USの最終課題として取り組んだプロジェクトの資産の一部を公開するリポジトリです。当該プロジェクトは、ディープラーニング技術の習得のために取り組んだものであり、結果の正当性については保証致しません。
 
 # 2. リポジトリのファイル構成
-- Readme.ipynb : 本ファイル
+- Readme.md : 本ファイル
 - Case_1.ipynb : Case 1の実行結果
 - Case_2.ipynb : Case 2の実行結果
 - Case_3.ipynb : Case 3の実行結果
@@ -13,7 +13,7 @@
 
 # 4. データ
 ## 4.1 コーパス
-特許の機械翻訳用のコーパスとしては、国立情報学研究所が提供している[NTCIR-10](http://research.nii.ac.jp/ntcir/permission/ntcir-10/perm-en-PatentMT.html)が知られています。しかしながら、大学に所属する研究者等でなければ提供を受けられないなど、一般には使用できません。そのため、本プロジェクトでは、国際特許出願の願書に添付された特許請求の範囲の和文と、その国際特許出願の欧州移行時における特許請求の範囲の英文とから、英文と和文の約37万組からなるコーパスを新たに生成致しました。本プロジェクトでは、使用できるメモリ量や計算速度の観点から、英文と和文がともに所定の長さ以下のデータのみを使用して学習を行ないました。なお、生成したコーパスは、以下からダウンロード可能です。
+特許の機械翻訳用のコーパスとしては、国立情報学研究所が提供している[NTCIR-10](http://research.nii.ac.jp/ntcir/permission/ntcir-10/perm-en-PatentMT.html)が知られています。しかしながら、大学に所属する研究者等でなければ提供を受けられないなど、一般には使用できません。そのため、本プロジェクトでは、国際特許出願の願書に添付された特許請求の範囲の和文と、その国際特許出願の欧州移行時における特許請求の範囲の英文とから、約37万組の和英対訳からなるコーパスを新たに生成致しました。本プロジェクトでは、使用できるメモリ量や計算速度の観点から、英文と和文がともに所定の長さ以下のデータのみを使用して学習を行ないました。なお、生成したコーパスは、以下からダウンロード可能です。
 
 Corpus URL: https://drive.google.com/open?id=14mfeBRioi9dkAk546Aez6uaJcZeLoNQd
 
@@ -22,7 +22,7 @@ Corpus URL: https://drive.google.com/open?id=14mfeBRioi9dkAk546Aez6uaJcZeLoNQd
 本プロジェクトでは、単語の分散表現として学習済みのものを使用し、分散表現の学習は行いません。本プロジェクトでは、Facebookが提供しているfastTextによる学習済みの[英単語の分散表現](https://fasttext.cc/docs/en/english-vectors.html)および[日本語の単語の分散表現](https://fasttext.cc/docs/en/crawl-vectors.html)を使用しています。分散表現の次元は、いずれも300です。
 
 # 5. モデル
-本プロジェクトでは、ベースとなるモデルとしてRNN Encoder-Decoderを使用し、Encoderの出力系列の各要素にアテンドするAttentionを組み込んでいます。Encoder側のLSTMはBidirectionalとし、AttentionにはSoft Attentionを使用しています。Kerasによる実装の一部を以下に記載します。コードの詳細は、case_3.ipynb内のRNNEncoderDecoderAttのクラス定義をご参照下さい。
+本プロジェクトでは、ベースとなるモデルとしてRNN Encoder-Decoderを使用し、Encoderの出力系列の各要素にアテンドするAttentionを組み込んでいます。Encoder側のLSTMはBidirectionalとし、AttentionにはSoft Attentionを使用しています。Kerasによる実装の一部を以下に記載します。コードの詳細は、Case_3.ipynb内のRNNEncoderDecoderAttのクラス定義をご参照下さい。
 
 
 ```python
